@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(private val data: ArrayList<Contact>) :
     RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+
     class ViewHolder(v: View): RecyclerView.ViewHolder(v) {
         val tv_name = v.findViewById<TextView>(R.id.tv_name)
         val tv_phone = v.findViewById<TextView>(R.id.tv_phone)
@@ -15,6 +16,7 @@ class MyAdapter(private val data: ArrayList<Contact>) :
     }
 
     override fun getItemCount() = data.size
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int):
             ViewHolder {
         val v = LayoutInflater.from(viewGroup.context)
@@ -25,6 +27,7 @@ class MyAdapter(private val data: ArrayList<Contact>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tv_name.text = data[position].name
         holder.tv_phone.text = data[position].phone
+
         holder.img_delete.setOnClickListener {
             data.removeAt(position)
             notifyDataSetChanged()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.italkutalk.lab16_2">
+    package="bluenet.com.lab16_2">
 
     <queries>
-        <package android:name="com.italkutalk.lab16_1" />
+        <package android:name="bluenet.com.lab16"/>
     </queries>
 
     <application
@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab16_2">
-
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

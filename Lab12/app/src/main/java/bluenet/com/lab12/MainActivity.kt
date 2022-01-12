@@ -10,9 +10,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         findViewById<Button>(R.id.btn_start).setOnClickListener {
+
             startService(Intent(this, MyService::class.java))
             Toast.makeText(this, "啟動 Service", Toast.LENGTH_SHORT).show()
+
             finish()
         }
     }

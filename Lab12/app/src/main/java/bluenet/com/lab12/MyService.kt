@@ -10,7 +10,9 @@ class MyService : Service() {
         Thread {
             try {
                 Thread.sleep(3000)
+
                 val intent = Intent(this, SecActivity::class.java)
+
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             } catch (e: InterruptedException) {

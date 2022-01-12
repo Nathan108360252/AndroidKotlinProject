@@ -25,6 +25,7 @@ class SecActivity : AppCompatActivity() {
                     val b = Bundle()
                     b.putString("name", ed_name.text.toString())
                     b.putString("phone", ed_phone.text.toString())
+
                     setResult(Activity.RESULT_OK, Intent().putExtras(b))
                     finish()
                 }

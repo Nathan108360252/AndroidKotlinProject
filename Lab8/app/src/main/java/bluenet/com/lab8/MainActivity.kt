@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: MyAdapter
     private val contacts = ArrayList<Contact>()
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data:
     Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -18,7 +19,9 @@ class MainActivity : AppCompatActivity() {
             if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
                 val name = it.getString("name") ?: return@let
                 val photo = it.getString("phone") ?: return@let
+
                 contacts.add(Contact(name, photo))
+
                 adapter.notifyDataSetChanged()
             }
         }
@@ -26,11 +29,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val btn_add = findViewById<Button>(R.id.btn_add)
+
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = linearLayoutManager
+
         adapter = MyAdapter(contacts)
         recyclerView.adapter = adapter
         btn_add.setOnClickListener {
